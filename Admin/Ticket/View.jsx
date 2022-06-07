@@ -4,7 +4,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
 import CircularProgress from '@mui/material/CircularProgress';
-import { PagePadding, get, post, app } from '@Panel';
+import { PagePadding, TopContext, get, post, app } from '@Panel';
 import { LongText } from '@Form';
 
 const ViewTicket = () => {
@@ -15,6 +15,8 @@ const ViewTicket = () => {
     const [showForm, setShowForm] = useState(false)
     const [isValid, setIsValid] = useState(false)
     const [message, setMessage] = useState('')
+
+    const { setTitle } = useContext(TopContext)
 
     const { ticketId } = app.parseQuery()
 
@@ -46,7 +48,7 @@ const ViewTicket = () => {
     useEffect(() => {
         if (ticketId) {
             loadTicket()
-            app.emit(app.componentLoaded, { pageTitle: 'View ticket ' })
+            setTitle('View ticket')
         }
     }, [])
 

@@ -1,68 +1,70 @@
-import { PagePadding, get, post, app } from '@Panel';
-import React, { useState, useEffect } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
-import Collapse from '@mui/material/Collapse';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import Button from '@mui/material/Button';
+import { PagePadding, TopContext, get, post, app } from '@Panel'
+import React, { useState, useEffect } from 'react'
+import CircularProgress from '@mui/material/CircularProgress'
+import Collapse from '@mui/material/Collapse'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess'
+import Button from '@mui/material/Button'
 
 const ViewTicket = () => {
 
-    const [progress, setProgress] = useState(false);
-    const [submitting, setSubmitting] = useState(false);
-    const [ticket, setTicket] = useState();
-    const [showForm, setShowForm] = useState(false);
-    const [isValid, setIsValid] = useState(false);
-    const [message, setMessage] = useState('');
+    const [progress, setProgress] = useState(false)
+    const [submitting, setSubmitting] = useState(false)
+    const [ticket, setTicket] = useState()
+    const [showForm, setShowForm] = useState(false)
+    const [isValid, setIsValid] = useState(false)
+    const [message, setMessage] = useState('')
 
-    const { ticketId } = app.parseQuery();
+    const { setTitle } = useContext(TopContext)
+
+    const { ticketId } = app.parseQuery()
 
     const loadTicket = () => {
-        setProgress(true);
+        setProgress(true)
         get(`/ticket/view?ticketId=${ticketId}`)
             .then((data) => {
-                setProgress(false);
-                setTicket(data);
+                setProgress(false)
+                setTicket(data)
             }, (error) => {
-                setProgress(false);
-                app.error(error);
-            });
+                setProgress(false)
+                app.error(error)
+            })
     }
 
     const handleSubmit = () => {
-        setSubmitting(true);
+        setSubmitting(true)
         post(`/ticket/addUserResponse`, { ticketId: ticketId * 1, message })
             .then((post) => {
-                setSubmitting(false);
-                setShowForm(false);
-                loadTicket();
+                setSubmitting(false)
+                setShowForm(false)
+                loadTicket()
             }, (error) => {
-                setSubmitting(false);
-                app.error(error);
+                setSubmitting(false)
+                app.error(error)
             })
     }
 
     useEffect(() => {
         if (ticketId) {
-            loadTicket();
-            app.emit(app.componentLoaded, { pageTitle: 'View ticket ' });
+            loadTicket()
+            setTitle('View ticket ')
         }
-    }, []);
+    }, [])
 
     useEffect(() => {
         if (message) {
-            setIsValid(true);
+            setIsValid(true)
         }
         else {
-            setIsValid(false);
+            setIsValid(false)
         }
-    }, [message]);
+    }, [message])
 
     useEffect(() => {
         if (showForm) {
-            document.querySelector('#postMessage').focus();
+            document.querySelector('#postMessage').focus()
         }
-    }, [showForm]);
+    }, [showForm])
 
     const Ticket = <div className="ticket ">
         <div className="bg-green-200 md:rounded-lg p-6">
@@ -164,4 +166,4 @@ const ViewTicket = () => {
     </div>
 }
 
-export default ViewTicket;
+export default ViewTicket
