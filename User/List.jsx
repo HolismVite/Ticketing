@@ -3,7 +3,7 @@ import {
     Text,
     Enum,
     ListAction,
-    ItemAction,
+    EntityAction,
     ValueWithTitle,
     Chip,
     DatePart,
@@ -46,7 +46,7 @@ const listActions = () => {
     </>
 }
 
-const itemActions = (item) => {
+const entityActions = (item) => {
     const closeTicket = ({ setProgress, setItem }) => {
         setProgress(true);
         post(`/ticket/close?ticketId=${item.id}`)
@@ -61,7 +61,7 @@ const itemActions = (item) => {
     }
 
     return <>
-        <ItemAction
+        <EntityAction
             title='View'
             icon={<MessageIcon />}
             goTo={`/ticket/view?ticketId=${item.id}`}
@@ -71,7 +71,7 @@ const itemActions = (item) => {
                 ?
                 null
                 :
-                <ItemAction
+                <EntityAction
                     title='Close'
                     icon={DoneIcon}
                     click={(params) => closeTicket(params)}
@@ -139,7 +139,7 @@ const Tickets = () => {
         headers={headers}
         row={row}
         create={CreateTicket}
-        itemActions={itemActions}
+        entityActions={entityActions}
     />
 }
 
