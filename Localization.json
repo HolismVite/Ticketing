@@ -2,7 +2,10 @@
     {
         "locale": "fa",
         "translations": {
-            "Tickets": "پشتیبانی"
+            "Tickets": "پشتیبانی",
+            "Close all": "بستن همه",
+            "User": "کاربر",
+            "Creation Date": "تاریخ ایجاد"
         }
     }
 ]
