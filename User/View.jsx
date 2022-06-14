@@ -1,4 +1,5 @@
 import { PagePadding, TopContext, get, post, app } from '@Panel'
+import { DateTime } from '@List'
 import React, { useState, useEffect, useContext } from 'react'
 import CircularProgress from '@mui/material/CircularProgress'
 import Collapse from '@mui/material/Collapse'
@@ -18,6 +19,9 @@ const ViewTicket = () => {
     const { setTitle } = useContext(TopContext)
 
     const { ticketId } = app.parseQuery()
+
+    const titleStyle = "font-bold mb-1"
+    const valueStyle = "border-b border-white mb-2 pb-2"
 
     const loadTicket = () => {
         setProgress(true)
@@ -68,16 +72,16 @@ const ViewTicket = () => {
 
     const Ticket = <div className="ticket ">
         <div className="bg-green-200 md:rounded-lg p-6">
-            <div>Ticket #{ticket?.ticket?.id}</div>
-            <div>{ticket?.ticket?.title}</div>
-            <div>Created at:</div>
-            <div>{ticket?.ticket?.utcDate}</div>
-            <div>Last updated at:</div>
-            <div>{ticket?.ticket?.latestPostUtcDate}</div>
-            <div>Importance:</div>
-            <div>{ticket?.ticket?.priorityKey}</div>
-            <div>State:</div>
-            <div>{ticket?.ticket?.titleizedStateKey}</div>
+            <div className={titleStyle}>{app.t('Ticket')} #{ticket?.ticket?.id}</div>
+            <div className={valueStyle}>{ticket?.ticket?.title}</div>
+            <div className={titleStyle}>{app.t('Created at')}:</div>
+            <div className={valueStyle}><DateTime date={ticket?.ticket?.utcDate} /></div>
+            <div className={titleStyle}>{app.t('Last updated at')}:</div>
+            <div className={valueStyle}><DateTime date={ticket?.ticket?.latestPostUtcDate} /></div>
+            <div className={titleStyle}>{app.t('Importance')}:</div>
+            <div className={valueStyle}>{app.t(ticket?.ticket?.priorityKey)}</div>
+            <div className={titleStyle}>{app.t('State')}:</div>
+            <div className={valueStyle + " border-transparent mb-0 pb-0"}>{app.t(ticket?.ticket?.relatedItems?.titleizedStateKey)}</div>
         </div>
     </div>
 
@@ -122,12 +126,12 @@ const ViewTicket = () => {
                 ?
                 <div className="w-full pt-6 cursor-pointer" onClick={() => setShowForm(false)}>
                     <ExpandLessIcon />
-                    <span className="text-sm mx-3 lowercase font-light tracking-wider">Hide form</span>
+                    <span className="text-sm mx-3 lowercase font-light tracking-wider">{app.t('Hide form')}</span>
                 </div>
                 :
                 <div className="w-full cursor-pointer" onClick={() => setShowForm(true)}>
                     <ExpandMoreIcon />
-                    <span className="text-sm mx-3 lowercase font-light tracking-wider">Show form</span>
+                    <span className="text-sm mx-3 lowercase font-light tracking-wider">{app.t('Show form')}</span>
                 </div>
         }
     </div>

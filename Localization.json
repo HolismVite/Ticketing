@@ -20,7 +20,9 @@
             "Created at": "ایجاد شده در تاریخ",
             "Last updated at": "آخرین به روزرسانی",
             "Importance": "اولویت",
-            "State": "وضعیت"
+            "State": "وضعیت",
+            "show form": "نمایش فرم",
+            "hide form": "مخفی کردن فرم"
         }
     }
 ]

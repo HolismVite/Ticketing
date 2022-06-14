@@ -1,5 +1,5 @@
 import { Tickets } from './Ticket/List'
-import { ViewTicket } from './Ticket/View'
+import ViewTicket from './Ticket/View'
 import SupportIcon from '@mui/icons-material/Support';
 
 const TicketingRoutes = [
@@ -8,7 +8,7 @@ const TicketingRoutes = [
         "component": Tickets
     },
     {
-        "path": "/ticket",
+        "path": "/ticket/view",
         "component": ViewTicket
     }
 ]
