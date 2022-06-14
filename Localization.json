@@ -11,7 +11,16 @@
             "Please describe the problem": "لطفا مشکل را شرح دهید",
             "We need to know the problem to be able to help": "برای حل مشکل لازم است که ما نیز آن را شفاف بدانیم",
             "Priority": "اولویت",
-            "Create ticket": "ایجاد درخواست"
+            "Create ticket": "ایجاد درخواست",
+            "Close": "بستن",
+            "Newest": "جدیدترین",
+            "Most important": "مهم ترین",
+            "View ticket": "مشاهده درخواست پشتیبانی",
+            "Ticket": "درخواست",
+            "Created at": "ایجاد شده در تاریخ",
+            "Last updated at": "آخرین به روزرسانی",
+            "Importance": "اولویت",
+            "State": "وضعیت"
         }
     }
 ]

@@ -8,7 +8,7 @@ const fields =
             required='Please write the title'
         />
         <Enum
-            column='TicketPriorityId'
+            column='priorityId'
             entityType='TicketPriority'
             placeholder='Priority'
             required='Please choose the priority for this ticket. Choose less importance if it is less urgent'
