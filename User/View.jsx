@@ -20,8 +20,8 @@ const ViewTicket = () => {
 
     const { ticketId } = app.parseQuery()
 
-    const titleStyle = "font-bold mb-1"
-    const valueStyle = "border-b border-white mb-2 pb-2"
+    const titleStyle = "font-bold mb-1 text-gray-600"
+    const valueStyle = "border-b border-white mb-2 pb-2 text-gray-900"
 
     const loadTicket = () => {
         setProgress(true)
@@ -107,16 +107,15 @@ const ViewTicket = () => {
                             ?
                             <CircularProgress />
                             :
-                            null
+                            <Button
+                                variant="outlined"
+                                className={(isValid ? " bg-green-200" : "")}
+                                onClick={handleSubmit}
+                                disabled={!isValid}
+                            >
+                                {app.t('Save')}
+                            </Button>
                     }
-                    <Button
-                        variant="outlined"
-                        className={(isValid ? " bg-green-200" : "")}
-                        onClick={handleSubmit}
-                        disabled={!isValid}
-                    >
-                        {app.t('Save')}
-                    </Button>
                 </div>
                 <div className="clear-both"></div>
             </div>
@@ -145,11 +144,11 @@ const ViewTicket = () => {
                 + (index === ticket.posts.length - 1 ? " rounded-bl-lg rounded-br-lg " : "")
                 + (post.isSystemPost ? " bg-gray-300 " : "")
             }>
-                <div>
-                    <span>{post.utcDate}</span>
-                    <span>{post.isSystemPost ? "User" : "System"}</span>
+                <div className="border-b mb-2 pb-1 flex justify-between">
+                    <div>{app.t(post.isSystemPost ? "User" : "System")}</div>
+                    <div><DateTime date={post.utcDate} /></div>
                 </div>
-                {post.relatedItems.html}
+                {post.relatedItems.content}
             </div>)
         }
     </div>
