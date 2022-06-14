@@ -6,8 +6,7 @@ import {
     EntityAction,
     ValueWithTitle,
     Chip,
-    DatePart,
-    TimePart,
+    DateTime,
     post,
     app
 } from '@List';
@@ -111,11 +110,7 @@ const row = (item) => {
         <td>{item.title}</td>
         <td>
             <ValueWithTitle
-                value={<>
-                    <DatePart value={item.utcDate} />
-                    <br />
-                    <TimePart value={item.utcDate} />
-                </>}
+                value={<DateTime date={item.utcDate} />}
                 title={item.relatedItems.timeAgo + ' ago'}
             />
         </td>
