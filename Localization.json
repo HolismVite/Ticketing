@@ -5,7 +5,13 @@
             "Tickets": "پشتیبانی",
             "Close all": "بستن همه",
             "User": "کاربر",
-            "Creation Date": "تاریخ ایجاد"
+            "Creation Date": "تاریخ ایجاد",
+            "Please write the title": "لطفا عنوان را بنویسید",
+            "Please choose the priority for this ticket. Choose less importance if it is less urgent": "لطفا اولویت این درخواست پشتیبانی را مشخص کنید. اگر درخواست شما ضرورت کمتری دارد گزینه کم اهمیت تر را انتخاب کنید",
+            "Please describe the problem": "لطفا مشکل را شرح دهید",
+            "We need to know the problem to be able to help": "برای حل مشکل لازم است که ما نیز آن را شفاف بدانیم",
+            "Priority": "اولویت",
+            "Create ticket": "ایجاد درخواست"
         }
     }
 ]
