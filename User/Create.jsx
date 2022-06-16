@@ -1,4 +1,4 @@
-import { Form, Text, Enum, LongText } from '@Form';
+import { DialogForm, Text, Enum, LongText } from '@Form';
 
 const fields =
     <>
@@ -21,7 +21,7 @@ const fields =
     </>
 
 const CreateTicket = (props) => {
-    return <Form
+    return <DialogForm
         entityType='ticket'
         inputs={fields}
     />
