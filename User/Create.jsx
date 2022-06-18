@@ -20,7 +20,7 @@ const fields =
         />
     </>
 
-const CreateTicket = (props) => {
+const CreateTicket = () => {
     return <DialogForm
         entityType='ticket'
         inputs={fields}
