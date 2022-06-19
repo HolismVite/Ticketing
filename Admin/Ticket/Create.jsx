@@ -1,4 +1,4 @@
-import { Form, Text, Enum, LongText, Browse } from '@Form';
+import { DialogForm, Text, Enum, LongText, Browse } from '@Form';
 import UserBrowser from '../../Accounts/User/Browser'
 
 const fields =
@@ -33,7 +33,7 @@ const fields =
     </>
 
 const CreateTicket = (props) => {
-    return <Form
+    return <DialogForm
         entityType='ticket'
         inputs={fields}
     />
