@@ -46,15 +46,15 @@ const listActions = () => {
 }
 
 const entityActions = (item) => {
-    const closeTicket = ({ setProgress, setItem }) => {
+    const closeTicket = ({ setProgress, setEntity, success, error }) => {
         setProgress(true);
         post(`/ticket/close?ticketId=${item.id}`)
             .then(data => {
-                app.success('Ticket is closed');
+                success('Ticket is closed');
                 setProgress(false);
-                setItem(data);
-            }, error => {
-                app.error(error);
+                setEntity(data);
+            }, e => {
+                error(e);
                 setProgress(false);
             });
     }
@@ -123,19 +123,16 @@ const row = (item) => {
     </>
 }
 
-const Tickets = () => {
-
-    return <List
-        title="Tickets"
-        entityType="ticket"
-        filters={filters}
-        sorts={sorts}
-        listActions={listActions}
-        headers={headers}
-        row={row}
-        create={CreateTicket}
-        entityActions={entityActions}
-    />
-}
+const Tickets = () => <List
+    title="Tickets"
+    entityType="ticket"
+    filters={filters}
+    sorts={sorts}
+    listActions={listActions}
+    headers={headers}
+    row={row}
+    create={CreateTicket}
+    entityActions={entityActions}
+/>
 
 export default Tickets;

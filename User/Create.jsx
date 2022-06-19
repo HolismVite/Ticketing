@@ -7,12 +7,6 @@ const fields =
             placeholder='Title'
             required='Please write the title'
         />
-        <Enum
-            column='priorityId'
-            entityType='TicketPriority'
-            placeholder='Priority'
-            required='Please choose the priority for this ticket. Choose less importance if it is less urgent'
-        />
         <LongText
             column='body'
             placeholder='Please describe the problem'
@@ -20,11 +14,9 @@ const fields =
         />
     </>
 
-const CreateTicket = () => {
-    return <DialogForm
-        entityType='ticket'
-        inputs={fields}
-    />
-}
+const CreateTicket = <DialogForm
+    entityType='ticket'
+    inputs={fields}
+/>
 
 export default CreateTicket;
