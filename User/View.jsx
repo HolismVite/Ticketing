@@ -1,4 +1,4 @@
-import { PagePadding, TopContext, get, post, app } from '@Panel'
+import { PagePadding, TopContext, get, post, app, useMessage } from '@Panel'
 import { DateTime } from '@List'
 import React, { useState, useEffect, useContext } from 'react'
 import CircularProgress from '@mui/material/CircularProgress'
@@ -15,6 +15,7 @@ const ViewTicket = () => {
     const [showForm, setShowForm] = useState(false)
     const [isValid, setIsValid] = useState(false)
     const [message, setMessage] = useState('')
+    const { error } = useMessage()
 
     const { setTitle } = useContext(TopContext)
 
@@ -29,9 +30,9 @@ const ViewTicket = () => {
             .then((data) => {
                 setProgress(false)
                 setTicket(data)
-            }, (error) => {
+            }, (e) => {
                 setProgress(false)
-                app.error(error)
+                error(e)
             })
     }
 
@@ -42,9 +43,9 @@ const ViewTicket = () => {
                 setSubmitting(false)
                 setShowForm(false)
                 loadTicket()
-            }, (error) => {
+            }, (e) => {
                 setSubmitting(false)
-                app.error(error)
+                error(e)
             })
     }
 

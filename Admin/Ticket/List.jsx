@@ -34,14 +34,19 @@ const sorts = [
 
 const listActions = (itemIds) => {
 
-    const closeAll = ({ setProgress, reloadList }) => {
+    const closeAll = ({
+        error,
+        reloadList,
+        setProgress,
+        success,
+    }) => {
         setProgress(true);
         post('/ticket/closeAll', itemIds).then(data => {
-            app.success('Tickets are closed successfully');
+            success('Tickets are closed successfully');
             setProgress(false);
             reloadList();
-        }, error => {
-            app.error(error);
+        }, e => {
+            error(e);
             setProgress(false);
         })
     }
@@ -57,15 +62,20 @@ const listActions = (itemIds) => {
 }
 
 const entityActions = (item) => {
-    const closeTicket = ({ setProgress, setItem }) => {
+    const closeTicket = ({
+        error,
+        setEntity,
+        setProgress,
+        success,
+    }) => {
         setProgress(true);
         post(`/ticket/close?ticketId=${item.id}`)
             .then(data => {
-                app.success('Ticket is closed');
+                success('Ticket is closed');
                 setProgress(false);
-                setItem(data);
-            }, error => {
-                app.error(error);
+                setEntity(data);
+            }, e => {
+                error(e);
                 setProgress(false);
             });
     }
