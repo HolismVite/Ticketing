@@ -103,7 +103,7 @@ const entityActions = (item) => {
 const headers =
     <>
         <th>#</th>
-        <th> User </th>
+        <th>User</th>
         <th>Title</th>
         <th>Creation date</th>
         <th>State</th>
