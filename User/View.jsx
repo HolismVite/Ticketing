@@ -146,7 +146,7 @@ const ViewTicket = () => {
                 + (post.isSystemPost ? " bg-gray-300 " : "")
             }>
                 <div className="border-b mb-2 pb-1 flex justify-between">
-                    <div>{app.t(post.isSystemPost ? "User" : "System")}</div>
+                    <div>{app.t(post.isSystemPost ? "System" : "User")}</div>
                     <div><DateTime date={post.utcDate} /></div>
                 </div>
                 {post.relatedItems.content}
