@@ -32,21 +32,42 @@ const sorts = [
     }
 ]
 
-const listActions = () => {
-    const closeAll = () => {
-        console.log('close all');
-    };
+const listActions = (itemIds) => {
+
+    const closeAll = ({
+        error,
+        reloadList,
+        setProgress,
+        success,
+    }) => {
+        setProgress(true);
+        post('/ticket/closeTickets', itemIds).then(data => {
+            success('Tickets are closed');
+            setProgress(false);
+            reloadList();
+        }, e => {
+            error(e);
+            setProgress(false);
+        });
+    }
 
     return <>
         <ListAction
             title='Close all'
             icon={DoneIcon}
-            click={() => closeAll()} />
+            click={closeAll}
+            minCardinality={1}
+        />
     </>
 }
 
 const entityActions = (item) => {
-    const closeTicket = ({ setProgress, setEntity, success, error }) => {
+    const closeTicket = ({
+        error,
+        setEntity,
+        setProgress,
+        success,
+    }) => {
         setProgress(true);
         post(`/ticket/close?ticketId=${item.id}`)
             .then(data => {
@@ -62,7 +83,7 @@ const entityActions = (item) => {
     return <>
         <EntityAction
             title='View'
-            icon={<MessageIcon />}
+            icon={MessageIcon}
             goTo={`/ticket/view?ticketId=${item.id}`}
         />
         {

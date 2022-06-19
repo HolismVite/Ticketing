@@ -23,7 +23,9 @@
             "State": "وضعیت",
             "show form": "نمایش فرم",
             "hide form": "مخفی کردن فرم",
-            "System": "سامانه"
+            "System": "سامانه",
+            "Ticket is closed": "درخواست پشتیبانی بسته شد",
+            "Tickets are closed": "درخواست های پشتیبانی بسته شدند"
         }
     }
 ]
