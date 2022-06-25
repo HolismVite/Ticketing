@@ -4,20 +4,20 @@ import ViewTicket from './View'
 
 const TicketingRoutes = [
     {
-        "path": "/tickets",
-        "component": Tickets
+        path: "/tickets",
+        component: Tickets
     },
     {
-        "path": "/ticket/view",
-        "component": ViewTicket
+        path: "/ticket/view",
+        component: ViewTicket
     },
 ]
 
 const TicketingMenu = [
     {
-        "title": "Tickets",
+        title: "Tickets",
         "icon": HelpIcon,
-        "url": "/tickets"
+        url: "/tickets"
     }
 ]
 

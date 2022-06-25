@@ -4,20 +4,20 @@ import SupportIcon from '@mui/icons-material/Support';
 
 const TicketingRoutes = [
     {
-        "path": "/tickets",
-        "component": Tickets
+        path: "/tickets",
+        component: Tickets
     },
     {
-        "path": "/ticket/view",
-        "component": ViewTicket
+        path: "/ticket/view",
+        component: ViewTicket
     }
 ]
 
 const TicketingMenu = [
     {
-        "title": "Tickets",
+        title: "Tickets",
         "icon": SupportIcon,
-        "url": "/tickets",
+        url: "/tickets",
     }
 ]
 
