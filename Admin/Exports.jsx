@@ -1,6 +1,6 @@
-import { Tickets } from './Ticket/List'
-import ViewTicket from './Ticket/View'
 import SupportIcon from '@mui/icons-material/Support';
+import Tickets from './Ticket/List'
+import ViewTicket from './Ticket/View'
 
 const TicketingRoutes = [
     {
@@ -21,7 +21,7 @@ const TicketingMenu = [
     }
 ]
 
+export { TicketingMenu }
+export { TicketingRoutes }
 export { Tickets }
 export { ViewTicket }
-export { TicketingRoutes }
-export { TicketingMenu }
