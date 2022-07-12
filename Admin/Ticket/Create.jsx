@@ -8,7 +8,7 @@ const fields =
             placeholder='User'
             required='Please select a user'
             browser={UserBrowser}
-            display={user => user.displayName}
+            show={user => user.displayName}
             choose={user => user.guid}
         />
         {/* <UserBrowser
