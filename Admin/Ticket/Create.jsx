@@ -7,7 +7,7 @@ const fields =
             column='UserGuid'
             placeholder='User'
             required='Please select a user'
-            browser={UserBrowser}
+            list={UserBrowser}
             show={user => user.displayName}
             choose={user => user.guid}
         />
